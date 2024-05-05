@@ -12,7 +12,7 @@ const Login = () => {
       e.preventDefault();
   
       emailjs
-        .sendForm('template_6faorqc', 'template_6faorqc', form.current, {
+        .sendForm('service_web0sed', 'template_6faorqc', form.current, {
           publicKey: 'service_web0sed',
         })
         .then(
