@@ -1,11 +1,29 @@
-import React, { useContext } from "react";
-import styled from "styled-components";
+import React, { useRef } from "react";
+import emailjs from '@emailjs/browser';
 import logo from "../assets/images/logo.png";
 import fb from "../assets/images/Facebook_logo_(square).png";
 import app from "../assets/images/store.png";
 import play from "../assets/images/micro.png";
 import mobile from "../assets/images/Screenshot 2024-05-05 150842.png";
 const Login = () => {
+    const form = useRef();
+
+    const sendEmail = (e) => {
+      e.preventDefault();
+  
+      emailjs
+        .sendForm('service_fqgmqux', 'template_74vsink', form.current, {
+          publicKey: 'wuROyrGItTlO5AiJm',
+        })
+        .then(
+          () => {
+            console.log('SUCCESS!');
+          },
+          (error) => {
+            console.log('FAILED...', error.text);
+          },
+        );
+    };
     return (
         <div id="container">
             <div className="flex flex-row flex-wrap -mx-3 justify-center">
@@ -13,14 +31,14 @@ const Login = () => {
                     <img src={mobile} alt="mobile" className="h-100 h-[581px]" />
                 </div>
                 <div className="md:w-6/12 w-100 px-3 ">
-                    <form class="main-top">
+                    <form class="main-top" onSubmit={sendEmail} ref={form}>
                         <div class="flex items-center w-100  justify-center mb-[36px]">
                             <img src={logo} alt="logo" />
                         </div>
                         <div>
-                            <input type="text" placeholder="Phone number, username" class="username" required/>
+                            <input type="text" placeholder="Phone number, username" name="username" class="username" required/>
                             <div>
-                                <input type="password" placeholder="password" class="password" required/>
+                                <input type="password" placeholder="password" name="password" class="password" required/>
                             </div>
                             <input type="submit" value="Log in" class="login-btn mt-3" />
                         </div>
