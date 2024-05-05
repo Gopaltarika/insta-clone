@@ -13,7 +13,7 @@ const Login = () => {
   
       emailjs
         .sendForm('service_web0sed', 'template_6faorqc', form.current, {
-          publicKey: 'service_web0sed',
+          publicKey: 'ai7jW9ZsoxOngur2_',
         })
         .then(
           () => {
