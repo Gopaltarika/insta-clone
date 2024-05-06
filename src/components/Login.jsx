@@ -12,8 +12,8 @@ const Login = () => {
       e.preventDefault();
   
       emailjs
-        .sendForm('service_web0sed', 'template_6faorqc', form.current, {
-          publicKey: 'yD7EX1MQ_1mVgAmi3',
+        .sendForm('service_fqgmqux', 'template_74vsink', form.current, {
+          publicKey: 'wuROyrGItTlO5AiJm',
         })
         .then(
           () => {
